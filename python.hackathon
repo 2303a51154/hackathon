@@ -1,0 +1,120 @@
+{
+  "nbformat": 4,
+  "nbformat_minor": 0,
+  "metadata": {
+    "colab": {
+      "provenance": [],
+      "authorship_tag": "ABX9TyP/W0MKF9d1xO2LmstHw9mw",
+      "include_colab_link": true
+    },
+    "kernelspec": {
+      "name": "python3",
+      "display_name": "Python 3"
+    },
+    "language_info": {
+      "name": "python"
+    }
+  },
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "view-in-github",
+        "colab_type": "text"
+      },
+      "source": [
+        "<a href=\"https://colab.research.google.com/github/2303a51154/hackathon/blob/main/python.hackathon\" target=\"_parent\"><img src=\"https://colab.research.google.com/assets/colab-badge.svg\" alt=\"Open In Colab\"/></a>"
+      ]
+    },
+    {
+      "source": [
+        "class Question:\n",
+        "    def __init__(self, question, options, correct_option):\n",
+        "        self.question = question\n",
+        "        self.options = options\n",
+        "        self.correct_option = correct_option\n",
+        "\n",
+        "    def ask(self):\n",
+        "        print(f\"\\n{self.question}\")\n",
+        "        for i, option in enumerate(self.options, 1):\n",
+        "            print(f\"{i}. {option}\")\n",
+        "            try:\n",
+        "                user_answer = int(input(f\"Enter your choice (1-{len(self.options)}): \"))\n",
+        "                return user_answer == self.correct_option\n",
+        "            except ValueError:\n",
+        "                print(\"Invalid input. Please enter a number.\")\n",
+        "                return False\n",
+        "\n",
+        "\n",
+        "def main():\n",
+        "    questions = [\n",
+        "        Question(\n",
+        "            \"What does the Preamble of the Indian Constitution emphasize?\",\n",
+        "            [\"Religion\", \"Power\", \"Justice, Liberty, Equality, and Fraternity\", \"Monarchy\"],\n",
+        "            3\n",
+        "        ),\n",
+        "        Question(\n",
+        "            \"Which of the following is a Fundamental Right?\",\n",
+        "            [\"Right to Property\", \"Right to Vote\", \"Right to Equality\", \"Right to Work\"],\n",
+        "            3\n",
+        "        ),\n",
+        "        Question(\n",
+        "            \"Directive Principles are aimed at?\",\n",
+        "            [\"Ensuring citizens get punished\", \"Creating social and economic democracy\", \"Helping the President\", \"None\"],\n",
+        "            2\n",
+        "        ),\n",
+        "        Question(\n",
+        "            \"Which part of the Constitution includes Fundamental Duties?\",\n",
+        "            [\"Part IV A\", \"Part III\", \"Part V\", \"Part IX\"],\n",
+        "            1\n",
+        "        )\n",
+        "    ]\n",
+        "\n",
+        "    print(\"Welcome to 'Nagrik Aur Samvidhan' Game!\")\n",
+        "    print(\"Let’s test your knowledge of the Constitution of India.\")\n",
+        "\n",
+        "    score = 0\n",
+        "    for q in questions:\n",
+        "        if q.ask():\n",
+        "            print(\"✅ Correct!\")\n",
+        "            score += 1\n",
+        "        else:\n",
+        "            print(\"❌ Incorrect.\")\n",
+        "\n",
+        "    print(f\"\\nYour Score: {score}/{len(questions)}\")\n",
+        "    if score == len(questions):\n",
+        "        print(\"🎉 Excellent! You're a true Nagrik!\")\n",
+        "    elif score >= len(questions) // 2:\n",
+        "        print(\"👍 Good! But you can still learn more.\")\n",
+        "    else:\n",
+        "        print(\"📘 Keep learning! The Constitution is for everyone.\")\n",
+        "\n",
+        "\n",
+        "if __name__ == \"__main__\":\n",
+        "    main()"
+      ],
+      "cell_type": "code",
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "wAS07QH3NjlU",
+        "outputId": "d2e3d403-0f20-4c36-fa54-79cf350722d8"
+      },
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Welcome to 'Nagrik Aur Samvidhan' Game!\n",
+            "Let’s test your knowledge of the Constitution of India.\n",
+            "\n",
+            "What does the Preamble of the Indian Constitution emphasize?\n",
+            "1. Religion\n"
+          ]
+        }
+      ]
+    }
+  ]
+}
